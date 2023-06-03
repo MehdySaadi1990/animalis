@@ -95,7 +95,7 @@ function LoginForm({admin, setAdmin, login, setLogin, setModal}) {
             .then(res=>res.json())
             .then(data=>{
             if(data.token && data.userId){
-                if(email==='mehdy.saadi.dk@gmail.com'){
+                if(email==='animalis.lome@gmail.com'){
                     setAdmin(true)
                     setLogin(true)
                     localStorage.setItem('tokens', JSON.stringify(data))

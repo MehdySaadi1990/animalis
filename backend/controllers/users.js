@@ -19,10 +19,13 @@ exports.signup = async (req, res, next) => {
     }).save()
 
     const message = `https://www.animalis-lome.com/verify/${user._id}/${token.token}`;
-    await sendEmail(user.email, "Verify Email", `<h1>Email Confirmation</h1>
-                                                <h2>Bonjour ${user.email}</h2>
-                                                <p>Merci de vous être inscrit sur Animalis. Veuillez confirmer votre e-mail en cliquant sur le lien suivant</p>
-                                                <a href=${message}> Cliquez ici</a>
+    await sendEmail(user.email, "Inscription Animalis Lomé", `<h1>Confirmation Email</h1>
+                                                <h2>Bonjour</h2>
+                                                <p>Merci de vous être inscrit sur Animalis Lomé.<br/>
+                                                 Veuillez confirmer votre e-mail en cliquant sur le lien suivant</p><br/>
+                                                <a href=${message}> Cliquez ici</a><br/>
+                                                <p>Si vous n'êtes pas à l'origine de cette demande d'incscription<br/>
+                                                Prière d'envoyer un mail à l'adresse suivante : <a href='mailto:animalis.lome@gmail.com'> animalis.lome@gmail.com</a></p>
                                                 </div>`);
 
     res.status(200).json({message:"An Email sent to your account please verify"});
@@ -89,9 +92,9 @@ exports.sendEmailForPassword = async (req, res, next)=>{
         }).save()
 
         const message = `https://www.animalis-lome.com/resetPassword/${user._id}/${token.token}`;
-         sendEmail(user.email, "Reset Password", `<h1>Réinitialisé Mot de passe</h1>
-                                                <h2>Bonjour ${user.email}</h2>
-                                                <p>Vous avez demander une réinitialisation de votre mot de passe. Veuillez confirmer votre e-mail en cliquant sur le lien suivant</p>
+         sendEmail(user.email, "Animalis Reset Password", `<h1>Réinitialisation Mot de passe</h1>
+                                                <p>Vous avez demander une réinitialisation de votre mot de passe.<br/>
+                                                 Veuillez confirmer votre e-mail en cliquant sur le lien suivant</p><br/>
                                                 <a href=${message}> Cliquez ici</a>
                                                 </div>`);
         res.status(200).json({message:"An Email sent to your account please verify"});
