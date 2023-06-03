@@ -69,7 +69,7 @@ function RemoveItem(){
     //State catégorie pour filtrage des produits
     const [categorie, setCategorie]= useState('')
     //Appel des données produits avec useFetch
-    const {datas} = useFetch('/api/product/')
+    const {datas} = useFetch('https://api-animalis-lome.com.animalis-lome.com/api/product/')
     const {products} = datas
     //Récupération du token dans le localStorage
     const idTokens = localStorage.getItem('tokens')
