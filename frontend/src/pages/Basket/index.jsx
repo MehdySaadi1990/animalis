@@ -115,7 +115,7 @@ function getOrder(basket) {
         return order
     }else{
         basket.forEach(item => {
-            order.push(`${item.designation} (${item.quantity})`)
+            order.push(`${item.reference} : ${item.designation} (${item.quantity})`)
             })
             return order
         }
