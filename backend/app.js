@@ -6,6 +6,7 @@ const userRoutes = require('./routes/users')
 const orderRoutes = require('./routes/order')
 const path = require('path');
 const jwt = require('jsonwebtoken');
+const log4js = require('log4js');
 
 require('dotenv').config();
 
@@ -34,6 +35,18 @@ app.use(express.json())
 app.use('/api/users', userRoutes)
 app.use('/api/order', orderRoutes)
 app.use('/images', express.static(path.join(__dirname, 'images')))
+
+const logger = log4js.getLogger();
+
+log4js.configure({
+  appenders: { everything: { type: 'file', filename: 'logs.log' } },
+  categories: { default: { appenders: ['everything'], level: 'ALL' } }
+});
+
+logger.debug('Ceci est un message de débogage');
+logger.info('Ceci est un message d\'information');
+logger.warn('Ceci est un avertissement');
+logger.error('Ceci est une erreur');
 
 
 
