@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom"
 const RemoveItemArea = styled.div`
 width:100%,
 height:auto;
+margin:20px 0;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -26,7 +27,7 @@ display:flex;
 justify-content:center;
 `
 const ItemArea= styled.div`
-width:100%;
+width:90%;
 height:auto;
 margin:20px 0;
 display:flex;
@@ -36,25 +37,28 @@ align-items:center;`
 
 const Item = styled.span`
 width:150px;
-height:150px;
+height:auto;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
-align-items:flex-start;
+align-items:center;
+text-align:center;
 box-shadow: 0px 2px 2px 3px rgba(0, 0, 0, 0.2);
 border-radius:5px;
-margin: 10px 0;
+margin: 10px 5px;
 padding-top:10px;
 `
 
 const Info = styled.span`
 font-size:12px;
 font-weight:bold;
+margin:2px 0;
 `
 
 const Button = styled.button`
 width:100%;
 height:40px;
+margin-top:5px;
 background-color:${colors.primary};
 border:none;
 border-radius:0 0 5px 5px;
@@ -98,9 +102,9 @@ function RemoveItem(){
             <ItemArea>
             {products&&products.map((product)=>(!categorie || categorie === product.categorie?
             <Item key={product._id}>
-            <Info>Référence : {product.reference}</Info>
-            <Info>Désignation : {product.designation}</Info>
-            <Info>Catégorie : {product.categorie}</Info>
+            <Info>Référence :  {product.reference}</Info>
+            <Info>Désignation :<br /> {product.designation}</Info>
+            <Info>Catégorie : <br />{product.categorie}</Info>
             <Info>Prix : {product.price} FCFA</Info>
             <Button onClick={()=>{
                 deleteItem(product._id)

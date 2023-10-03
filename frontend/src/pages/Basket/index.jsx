@@ -18,33 +18,36 @@ const Title = styled.h2`
 font-size:25px;
 `
 const BasketCardArea=styled.div`
-width:100%;
+width:90%;
 height:auto;
 display:flex;
-flex-direction:column;
+flex-wrap:wrap;
 justify-content:space-around;
 align-items:center;
-@media all and (min-width:1024px){
-    flex-direction:row;
-}`
+`
+
 const Total = styled.span`
 width:100%;
 height:50px;
 padding:10px 0;
 text-align:center;
-margin-top:20px;`
+margin-top:20px;
+font-weight:bold;
+color:red;`
+
 const TitleForm= styled.h3`
 font-weight:500;
 `
 const Form = styled.form`
-width:90%;
+width:85%;
 height:auto;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-@media all and (min-width:1024px){
+@media all and (min-width:768px){
     width:40%;
+
 }
 `
 const InputArea=styled.div`
@@ -55,23 +58,28 @@ justify-content:space-between;
 align-items:center;
 margin:10px 0;
 ${props=>props.$radio&&`
-width:100%;
-justify-content:flex-end;
+justify-content:center;
 `}
 @media all and (min-width:1024px){
     width:100%;
     margin:20px 0;
 }`
 const Label = styled.label`
+width:40%;
 font-size:12px;
+font-weight:bold;
+${props=>props.$radio&&`
+width:20%;
+height:14px;
+`}
 `
 
 const Input = styled.input`
-width:70%;
+width:60%;
 height:25px;
 border-radius:10px;
 ${props=>props.$radio&&`
-width:20%;
+width:10%;
 height:14px;
 `}
 `
@@ -79,6 +87,21 @@ const TextArea = styled.input`
 width:70%;
 height:100px;
 border-radius:10px;
+`
+const RadioArea = styled.div`
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+`
+const RadioSpace = styled.div`
+width:70%;
+display:flex;
+justify-contsnt:flex-end;
+`
+const RadioText= styled.span`
+font-size:12px;
+font-weight:bold;
 `
 const ValidButton = styled.button`
 width:90%;
@@ -98,6 +121,7 @@ cursor:pointer;
 //Fonction de récupération du panier
 function getBasket() {
     const basket = JSON.parse(localStorage.getItem('basket'))
+    console.log(basket);
    return basket
 }
 //Fonction de calcul du total facture
@@ -114,7 +138,7 @@ function getOrder(basket) {
     if(!basket){
         return order
     }else{
-        basket.forEach(item => {
+        basket.forEach((item) => {
             order.push(`${item.reference} : ${item.designation} (${item.quantity})`)
             })
             return order
@@ -127,7 +151,7 @@ function Basket({panier, setPanier}) {
     const [surname, setSurname]=useState('')
     const [email, setEmail]=useState('')
     const [phone, setPhone]=useState('')
-    const [delivery, setDelivery]=useState('livraison')
+    const [delivery, setDelivery]=useState('')
     const [notice, setNotice]=useState('')
     //Récupération du token et de la commande dans le localStorage
     const token = JSON.parse(localStorage.getItem('tokens'))
@@ -198,16 +222,24 @@ function Basket({panier, setPanier}) {
         <InputArea>
         <Label htmlFor="phone">Téléphone</Label>
         <Input type="tel" id="phone" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" onChange={(e)=>{e.preventDefault()
-                                                                                                            setPhone(e.target.value)}}/>
+                                                                                              setPhone(e.target.value)}}/>
         </InputArea>
+        <RadioArea>
+        <RadioText>Livraison</RadioText>
+        <RadioSpace>
         <InputArea $radio={true}>
-        <Label htmlFor="livraison">Livraison</Label>
+        <Label  $radio={true} htmlFor="livraison">oui</Label>
         <Input $radio={true} type="radio" id="livraison" checked={delivery==='oui'}  onChange={()=>{
                                             setDelivery('oui')}}/>
-        <Label htmlFor="recuperation">Boutique</Label>
-        <Input $radio={true} type="radio" id="recuperation" checked={delivery==='non'} onChange={()=>{
-                                            setDelivery('non')}}/>
         </InputArea>
+        <InputArea $radio={true}>
+        <Label $radio={true} htmlFor="recuperation">non</Label>
+        <Input $radio={true} type="radio" id="recuperation" checked={delivery==='non'} onChange={()=>{
+                                   setDelivery('non')}}/>
+        </InputArea>
+        </RadioSpace>
+        </RadioArea>
+
         <InputArea>
         <Label htmlFor="remarques">Remarques</Label>
         <TextArea id="remarques" type='text' onChange={(e)=>{e.preventDefault()

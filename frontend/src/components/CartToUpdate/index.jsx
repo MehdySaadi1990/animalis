@@ -6,7 +6,7 @@ const ItemCard=styled.div`
 width:150px;
 height:200px;
 border-radius:10px;
-margin:20px 0;
+margin:10px 5px;
 box-shadow: 0px 2px 2px 3px rgba(0, 0, 0, 0.2);
 display:flex;
 flex-direction:column;

@@ -13,6 +13,7 @@ text-align:center
 const UpdateItemArea= styled.div`
 width:100%;
 height:auto;
+margin:20px 0;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -21,16 +22,18 @@ align-items:center`
 const Filter = styled.div`
 width:50%;
 height:20px;
+margin-bottom:20px;
 display:flex;
 justify-content:center;
 `
 const ItemArea = styled.div`
-width:100%;
+width:90%;
 heught:auto;
 display:flex;
 justify-content:space-around;
 align-items:center;
 flex-wrap:wrap;`
+
 function UpdateItem() {
     //State Catégorie pour filtrage des éléments
     const [categorie, activeCategorie]=useState('')

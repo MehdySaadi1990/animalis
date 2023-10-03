@@ -3,55 +3,58 @@ import colors from '../../utils/colors'
 import { useState } from "react"
 
 const ItemCard=styled.div`
-width:250px;
-height:200px;
+width:200px;
+height:auto;
 border-radius:10px;
-margin:10px 0;
+margin:10px 5px;
 box-shadow: 0px 2px 2px 3px rgba(0, 0, 0, 0.2);
 display:flex;
 flex-direction:column;
 align-items:flex-end;
-@media all and (min-width:1024px){
-    width:25%;
+@media all and (min-width:768px){
+  
 }
 `
 const DescriptionArea=styled.div`
 width:100%;
-height:30%;
+height:auto;
 padding:5px 0;
 border-radius:0 0 10px 10px;
 display:flex;
+flex-direction:column;
 justify-content:space-between;
 align-items:center;
-flex-wrap:wrap;
 background-color:white;
 `
 const ItemImg = styled.img`
 width:100%;
-height:70%;
+height:100px;
 object-fit:contain;
 border-radius:10px 10px 0 0;
 `
 const Designation=styled.span`
-width:50%;
+width:100%;
+height:auto;
 text-align:center;
 font-size:14px;
 font-weight:bold;
 `
 const Prix=styled.span`
-width:95%;
+width:100%;
+display:flex;
+justify-content:center;
 font-size:14px;
 font-weight:bold;
 text-align:right;
 `
 const ButtonArea=styled.div`
-width:40%;
+width:100%;
 height:auto;
 display:flex;
 justify-content:center`
 const Button= styled.button`
 width:33px;
-height:20px;
+height: auto;
 margin:5px;
 border-radius:5px;
 font-weight:bold;
