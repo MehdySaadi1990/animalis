@@ -44,7 +44,7 @@ function AddItem() {
     const token = JSON.parse(idToken)
     //Utilisation de useNavigate pour redirection de page
     const navigate = useNavigate()
-    //Fonction d'nevoi des données pour ajout d'article (fetch/POST)
+    //Fonction d'envoi des données pour ajout d'article (fetch/POST)
     function  sendData(){
         const formData = new FormData()
         formData.append('reference', reference)
@@ -53,7 +53,7 @@ function AddItem() {
         formData.append('price', price)
         formData.append('image', image)
 
-        fetch('https://api-animalis-lome.com.animalis-lome.com/api/product/', {
+        fetch('http://localhost:5000/api/product/', {
             method: "POST",
             body: formData,
             headers: {

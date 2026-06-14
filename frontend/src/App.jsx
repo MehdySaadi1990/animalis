@@ -53,7 +53,7 @@ function App() {
     {admin&&<Route path="/AdminSpace/RemoveItem" setAdmin={setAdmin} element={<RemoveItem/>}/>}
     {admin&&<Route path="/AdminSpace/UpdateItem" element={<UpdateItem/>}/>}
     {admin&&<Route path="/AdminSpace/UpdateItem/:id" element={<ProductPage/>}/>}
-    <Route path="/verify/:id/:token" element={<EmailVerify/>}/>
+    <Route path="/email-verified" element={<EmailVerify/>}/>
     <Route path="/resetPassword/:id/:token" element={<ResetPassword/>}/>
     <Route path="*" element={<Error/>}/>
     </Routes>

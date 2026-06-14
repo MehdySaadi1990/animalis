@@ -57,7 +57,7 @@ function EmailVerify() {
        async function verifyEmail(){
         try {
             setDataLoading(true)
-            const {data} = await fetch(`https://api-animalis-lome.com.animalis-lome.com/api/users/verify/${param.id}/${param.token}`)
+            const {data} = await fetch(`http://localhost:5000/api/users/verify/${param.id}/${param.token}`)
             console.log(data);
             setValidUrl(true)
             setDataLoading(false)

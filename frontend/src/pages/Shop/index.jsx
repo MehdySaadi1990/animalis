@@ -35,7 +35,7 @@ justify-content:space-around;
 
 function Shop({panier, setPanier}) {
     //Appel des données produits avec useFetch
-    const {datas, error} = useFetch('https://api-animalis-lome.com.animalis-lome.com/api/product/')
+    const {datas, error} = useFetch('http://localhost:5000/api/product/')
     //State catégorie pour filtrage des produits
     const [categorie, activeCategorie]=useState('')
     const {products} = datas

@@ -114,7 +114,7 @@ function ModalRegistration({setModal}) {
     }
     function postDataSignUp(data) {
    
-        fetch('https://api-animalis-lome.com.animalis-lome.com/api/users/', {
+        fetch('http://localhost:5000/api/users/', {
            method: "POST",
            body: JSON.stringify(data),
            headers: {

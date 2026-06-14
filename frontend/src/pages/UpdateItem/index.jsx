@@ -40,7 +40,7 @@ function UpdateItem() {
     //Utilisation de useNAvigate pour la redirection
     const navigate = useNavigate()
     //Appel des données des produit avec useFtech
-    const {datas, error} = useFetch(`https://api-animalis-lome.com.animalis-lome.com/api/product/`)
+    const {datas, error} = useFetch(`http://localhost:5000/api/product/`)
     const {products} = datas
     if(error){
         navigate('/404')

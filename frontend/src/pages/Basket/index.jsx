@@ -97,7 +97,7 @@ align-items:center;
 const RadioSpace = styled.div`
 width:70%;
 display:flex;
-justify-contsnt:flex-end;
+justify-content:flex-end;
 `
 const RadioText= styled.span`
 font-size:12px;
@@ -179,7 +179,7 @@ function Basket({panier, setPanier}) {
             return alert('Veuillez remplir les champs obligatoires')
         }
         else{
-          await  fetch('https://api-animalis-lome.com.animalis-lome.com/api/order/', {
+          await  fetch('http://localhost:5000/api/order/', {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {

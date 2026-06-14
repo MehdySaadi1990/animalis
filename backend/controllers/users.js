@@ -18,7 +18,7 @@ exports.signup = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save()
 
-    const message = `https://www.animalis-lome.com/verify/${user._id}/${token.token}`;
+    const message = `http://localhost:5000/api/users/verify/${user._id}/${token.token}`;
     await sendEmail(user.email, "Inscription Animalis Lomé", `<h1>Confirmation Email</h1>
                                                 <h2>Bonjour</h2>
                                                 <p>Merci de vous être inscrit sur Animalis Lomé.<br/>
@@ -46,7 +46,7 @@ exports.confirm = async (req, res) => {
       if (!token) return res.status(400).send("Invalid link");
       await User.updateOne({ _id: user._id},{ verified: true });
       await Token.deleteOne({ _id: token._id})
-      res.status(200).json({message : "email verified sucessfully"});
+      res.redirect("http://localhost:3000/email-verified");
     } catch (error) {
       res.status(400).json({message : "An error occured"});
     }
@@ -91,7 +91,7 @@ exports.sendEmailForPassword = async (req, res, next)=>{
             token: crypto.randomBytes(32).toString("hex")
         }).save()
 
-        const message = `https://www.animalis-lome.com/resetPassword/${user._id}/${token.token}`;
+        const message = `http://localhost:5000/api/users/resetPassword/${user._id}/${token.token}`;
          sendEmail(user.email, "Animalis Reset Password", `<h1>Réinitialisation Mot de passe</h1>
                                                 <p>Vous avez demander une réinitialisation de votre mot de passe.<br/>
                                                  Veuillez confirmer votre e-mail en cliquant sur le lien suivant</p><br/>

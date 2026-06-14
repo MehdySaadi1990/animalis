@@ -84,7 +84,7 @@ function LoginForm({admin, setAdmin, login, setLogin, setModal}) {
     const navigate = useNavigate()
     
     function userLogin() {
-        fetch('https://api-animalis-lome.com.animalis-lome.com/api/users/login', {
+        fetch('http://localhost:5000/api/users/login', {
             method: "POST",
             body: JSON.stringify(dataToPost),
             headers: {
@@ -95,7 +95,7 @@ function LoginForm({admin, setAdmin, login, setLogin, setModal}) {
             .then(res=>res.json())
             .then(data=>{
             if(data.token && data.userId){
-                if(email==='animalis.lome@gmail.com'){
+                if(email==='mehdy.saadi.dk@gmail.com'){
                     setAdmin(true)
                     setLogin(true)
                     localStorage.setItem('tokens', JSON.stringify(data))

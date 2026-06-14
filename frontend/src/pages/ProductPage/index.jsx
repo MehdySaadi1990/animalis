@@ -54,7 +54,7 @@ function ProductPage() {
         formData.append('price', price)
         formData.append('image', image)
 
-      fetch(`https://api-animalis-lome.com.animalis-lome.com/api/product/${id}`,
+      fetch(`http://localhost:5000/api/product/${id}`,
        {method:'PUT',
         body:formData,
         headers:{'Authorization':`Bearer ${tokens.token}`},

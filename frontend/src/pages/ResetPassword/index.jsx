@@ -85,7 +85,7 @@ function ResetPassword() {
         password:password
     }
     function newPassword(data) {
-        fetch(`https://api-animalis-lome.com.animalis-lome.com/api/users/${id}/${token}/resetPassword`, {
+        fetch(`http://localhost:5000/api/users/${id}/${token}/resetPassword`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {

@@ -107,7 +107,7 @@ function Home(){
         <Banner>
         <BannerText> Découvrez notre gamme de produits sélectionnés pour le bonheur de votre animal</BannerText>
         <BannerLogo src={ImgLogo} alt='logo animalis'/>
-        <LinkShop $notDisplay={true} to='/Shop'>Visitez la boutique</LinkShop>
+        <LinkShop to='/Shop'>Visitez la boutique</LinkShop>
         </Banner>
         <HomeTitle>Nos produits et services</HomeTitle>
         <HomeCardArea>

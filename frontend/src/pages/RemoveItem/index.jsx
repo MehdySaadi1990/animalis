@@ -73,7 +73,7 @@ function RemoveItem(){
     //State catégorie pour filtrage des produits
     const [categorie, setCategorie]= useState('')
     //Appel des données produits avec useFetch
-    const {datas} = useFetch('https://api-animalis-lome.com.animalis-lome.com/api/product/')
+    const {datas} = useFetch('http://localhost:5000/api/product/')
     const {products} = datas
     //Récupération du token dans le localStorage
     const idTokens = localStorage.getItem('tokens')
@@ -82,7 +82,7 @@ function RemoveItem(){
     const navigate=useNavigate()
     //Fonction de suppression d'un article (fetch/DELETE)
     function deleteItem(id) {
-        fetch(`https://api-animalis-lome.com.animalis-lome.com/api/product/${id}`, {
+        fetch(`http://localhost:5000/api/product/${id}`, {
         method: "DELETE",
         headers: {
             'Authorization':`Bearer ${tokens.token}`,
