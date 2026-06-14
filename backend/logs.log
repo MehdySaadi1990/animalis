@@ -34,3 +34,11 @@
 [2026-06-14T10:33:02.852] [INFO] default - Ceci est un message d'information
 [2026-06-14T10:33:02.852] [WARN] default - Ceci est un avertissement
 [2026-06-14T10:33:02.852] [ERROR] default - Ceci est une erreur
+[2026-06-14T10:35:34.908] [DEBUG] default - Ceci est un message de débogage
+[2026-06-14T10:35:34.909] [INFO] default - Ceci est un message d'information
+[2026-06-14T10:35:34.909] [WARN] default - Ceci est un avertissement
+[2026-06-14T10:35:34.909] [ERROR] default - Ceci est une erreur
+[2026-06-14T10:44:33.478] [DEBUG] default - Ceci est un message de débogage
+[2026-06-14T10:44:33.479] [INFO] default - Ceci est un message d'information
+[2026-06-14T10:44:33.480] [WARN] default - Ceci est un avertissement
+[2026-06-14T10:44:33.480] [ERROR] default - Ceci est une erreur
